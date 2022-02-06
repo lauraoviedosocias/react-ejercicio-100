@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+
+  const [color, setColor] = useState("rojo")
+  const [textoBoton, setTextoBoton] = useState("Poner el fondo azul")
+
+  const handleClick = () => {
+
+    color === "rojo" ? setColor("azul") : setColor("rojo")
+    textoBoton === "Poner el fondo azul" ? setTextoBoton("Poner el fondo rojo") : setTextoBoton ("Poner el fondo azul")
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className={color}>
+
+      <button onClick={handleClick}>{textoBoton}</button>
+
     </div>
-  );
+  )
 }
 
 export default App;
